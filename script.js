@@ -19,13 +19,9 @@ function updateHeader() {
     window.scrollY > 50 &&
     !nav.classList.contains("open")
   ) {
-
     header.classList.add("scrolled");
-
   } else {
-
     header.classList.remove("scrolled");
-
   }
 
 }
@@ -34,79 +30,75 @@ window.addEventListener("scroll", updateHeader);
 
 
 // ================================
-// MENU OPEN / CLOSE
+// MENU OPEN
 // ================================
 
-menuButton.addEventListener("click", () => {
+function openMenu() {
 
-  const isOpening =
-    !nav.classList.contains("open");
+  // 開く直前の位置を保存
+  menuScrollPosition =
+    window.pageYOffset ||
+    document.documentElement.scrollTop;
 
+  nav.classList.add("open");
+  menuButton.textContent = "CLOSE";
 
-  if (isOpening) {
+  header.classList.remove("scrolled");
 
-    // 現在のスクロール位置を保存
-    menuScrollPosition = window.scrollY;
+  // 今いる位置のままbodyを固定
+  document.body.style.position = "fixed";
+  document.body.style.top = `-${menuScrollPosition}px`;
+  document.body.style.left = "0";
+  document.body.style.right = "0";
+  document.body.style.width = "100%";
 
-
-    // MENUを開く
-    nav.classList.add("open");
-
-    menuButton.textContent = "CLOSE";
-
-
-    // スクロール時のヘッダー状態を解除
-    header.classList.remove("scrolled");
-
-
-    // 現在位置でbodyを固定
-    document.body.style.top =
-      `-${menuScrollPosition}px`;
-
-    document.body.classList.add(
-      "menu-open"
-    );
-
-  } else {
-
-    closeMenu();
-
-  }
-
-});
+}
 
 
 // ================================
-// MENU CLOSE FUNCTION
+// MENU CLOSE
 // ================================
 
 function closeMenu() {
 
-  // MENUを閉じる
   nav.classList.remove("open");
-
   menuButton.textContent = "MENU";
 
+  // 保存していた位置を別変数に確保
+  const restorePosition = menuScrollPosition;
 
-  // bodyの固定を解除
-  document.body.classList.remove(
-    "menu-open"
-  );
-
+  // body固定解除
+  document.body.style.position = "";
   document.body.style.top = "";
+  document.body.style.left = "";
+  document.body.style.right = "";
+  document.body.style.width = "";
 
+  // 元いた位置へ戻す
+  window.scrollTo({
+    top: restorePosition,
+    left: 0,
+    behavior: "instant"
+  });
 
-  // MENUを開く前の位置に戻す
-  window.scrollTo(
-    0,
-    menuScrollPosition
-  );
-
-
-  // ヘッダー状態を再判定
   updateHeader();
 
 }
+
+
+// ================================
+// MENU BUTTON
+// ================================
+
+menuButton.addEventListener("click", () => {
+
+  if (nav.classList.contains("open")) {
+    closeMenu();
+  } else {
+    openMenu();
+  }
+
+});
 
 
 // ================================
@@ -117,14 +109,20 @@ document
   .querySelectorAll(".nav a")
   .forEach(link => {
 
-    link.addEventListener(
-      "click",
-      () => {
+    link.addEventListener("click", () => {
 
-        closeMenu();
+      // メニュー内リンクの場合は
+      // body固定だけ解除する
+      nav.classList.remove("open");
+      menuButton.textContent = "MENU";
 
-      }
-    );
+      document.body.style.position = "";
+      document.body.style.top = "";
+      document.body.style.left = "";
+      document.body.style.right = "";
+      document.body.style.width = "";
+
+    });
 
   });
 
