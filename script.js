@@ -6,46 +6,127 @@ const header = document.querySelector(".header");
 const menuButton = document.querySelector(".menu-button");
 const nav = document.querySelector(".nav");
 
+let menuScrollPosition = 0;
+
+
+// ================================
+// HEADER SCROLL
+// ================================
+
 function updateHeader() {
-  if (window.scrollY > 50 && !nav.classList.contains("open")) {
+
+  if (
+    window.scrollY > 50 &&
+    !nav.classList.contains("open")
+  ) {
+
     header.classList.add("scrolled");
+
   } else {
+
     header.classList.remove("scrolled");
+
   }
+
 }
 
 window.addEventListener("scroll", updateHeader);
 
+
+// ================================
+// MENU OPEN / CLOSE
+// ================================
+
 menuButton.addEventListener("click", () => {
-  nav.classList.toggle("open");
 
-  const isOpen = nav.classList.contains("open");
+  const isOpening =
+    !nav.classList.contains("open");
 
-  menuButton.textContent = isOpen ? "CLOSE" : "MENU";
 
-  if (isOpen) {
-  header.classList.remove("scrolled");
+  if (isOpening) {
 
-  document.body.classList.add("menu-open");
-  document.documentElement.classList.add("menu-open");
+    // 現在のスクロール位置を保存
+    menuScrollPosition = window.scrollY;
 
-} else {
-  document.body.classList.remove("menu-open");
-  document.documentElement.classList.remove("menu-open");
 
+    // MENUを開く
+    nav.classList.add("open");
+
+    menuButton.textContent = "CLOSE";
+
+
+    // スクロール時のヘッダー状態を解除
+    header.classList.remove("scrolled");
+
+
+    // 現在位置でbodyを固定
+    document.body.style.top =
+      `-${menuScrollPosition}px`;
+
+    document.body.classList.add(
+      "menu-open"
+    );
+
+  } else {
+
+    closeMenu();
+
+  }
+
+});
+
+
+// ================================
+// MENU CLOSE FUNCTION
+// ================================
+
+function closeMenu() {
+
+  // MENUを閉じる
+  nav.classList.remove("open");
+
+  menuButton.textContent = "MENU";
+
+
+  // bodyの固定を解除
+  document.body.classList.remove(
+    "menu-open"
+  );
+
+  document.body.style.top = "";
+
+
+  // MENUを開く前の位置に戻す
+  window.scrollTo(
+    0,
+    menuScrollPosition
+  );
+
+
+  // ヘッダー状態を再判定
   updateHeader();
+
 }
-});
 
-document.querySelectorAll(".nav a").forEach(link => {
-  link.addEventListener("click", () => {
-    nav.classList.remove("open");
-    document.body.classList.remove("menu-open");
-    menuButton.textContent = "MENU";
-    updateHeader();
+
+// ================================
+// MENU LINKS
+// ================================
+
+document
+  .querySelectorAll(".nav a")
+  .forEach(link => {
+
+    link.addEventListener(
+      "click",
+      () => {
+
+        closeMenu();
+
+      }
+    );
+
   });
-});
-
 
 
 // ================================
@@ -53,13 +134,17 @@ document.querySelectorAll(".nav a").forEach(link => {
 // ================================
 
 const serviceItems =
-  document.querySelectorAll(".service-item");
+  document.querySelectorAll(
+    ".service-item"
+  );
 
 
 serviceItems.forEach(item => {
 
   const button =
-    item.querySelector(".service-main");
+    item.querySelector(
+      ".service-main"
+    );
 
 
   button.addEventListener(
@@ -67,13 +152,17 @@ serviceItems.forEach(item => {
     () => {
 
       const isOpen =
-        item.classList.contains("open");
+        item.classList.contains(
+          "open"
+        );
 
 
       serviceItems.forEach(
         otherItem => {
 
-          otherItem.classList.remove("open");
+          otherItem.classList.remove(
+            "open"
+          );
 
         }
       );
@@ -81,7 +170,9 @@ serviceItems.forEach(item => {
 
       if (!isOpen) {
 
-        item.classList.add("open");
+        item.classList.add(
+          "open"
+        );
 
       }
 
@@ -91,13 +182,14 @@ serviceItems.forEach(item => {
 });
 
 
-
 // ================================
 // SERVICE CONTACT LINKS
 // ================================
 
 document
-  .querySelectorAll(".service-detail a")
+  .querySelectorAll(
+    ".service-detail a"
+  )
   .forEach(link => {
 
     link.addEventListener(
@@ -110,7 +202,6 @@ document
     );
 
   });
-
 
 
 // ================================
@@ -135,7 +226,9 @@ const revealTargets =
 revealTargets.forEach(
   element => {
 
-    element.classList.add("reveal");
+    element.classList.add(
+      "reveal"
+    );
 
   }
 );
@@ -155,7 +248,9 @@ const observer =
 
             entry.target
               .classList
-              .add("active");
+              .add(
+                "active"
+              );
 
 
             observer
@@ -180,7 +275,9 @@ const observer =
 revealTargets.forEach(
   element => {
 
-    observer.observe(element);
+    observer.observe(
+      element
+    );
 
   }
 );
