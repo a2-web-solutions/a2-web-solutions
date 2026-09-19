@@ -1781,3 +1781,10 @@ MOBILE
   }
 
 }
+/* MENUを開いている間は背景をスクロールさせない */
+html.menu-open,
+body.menu-open {
+  overflow: hidden;
+  height: 100%;
+  overscroll-behavior: none;
+}

@@ -24,12 +24,17 @@ menuButton.addEventListener("click", () => {
   menuButton.textContent = isOpen ? "CLOSE" : "MENU";
 
   if (isOpen) {
-    header.classList.remove("scrolled");
-    document.body.classList.add("menu-open");
-  } else {
-    document.body.classList.remove("menu-open");
-    updateHeader();
-  }
+  header.classList.remove("scrolled");
+
+  document.body.classList.add("menu-open");
+  document.documentElement.classList.add("menu-open");
+
+} else {
+  document.body.classList.remove("menu-open");
+  document.documentElement.classList.remove("menu-open");
+
+  updateHeader();
+}
 });
 
 document.querySelectorAll(".nav a").forEach(link => {
