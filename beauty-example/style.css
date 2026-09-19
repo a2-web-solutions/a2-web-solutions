@@ -1,0 +1,1136 @@
+/* =========================
+   RESET
+========================= */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: #f3f0ea;
+  color: #282725;
+
+  font-family:
+    "Helvetica Neue",
+    "Noto Sans JP",
+    Arial,
+    sans-serif;
+
+  line-height: 1.8;
+}
+
+img {
+  display: block;
+  width: 100%;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  font: inherit;
+}
+
+.section {
+  width: min(1180px, calc(100% - 100px));
+  margin: 0 auto;
+}
+
+.eyebrow {
+  font-size: 10px;
+  letter-spacing: 0.32em;
+  color: #847d73;
+}
+
+
+/* =========================
+   HEADER
+========================= */
+
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  height: 82px;
+
+  padding: 0 45px;
+
+  display: flex;
+  align-items: center;
+
+  z-index: 1000;
+
+  transition:
+    background 0.4s ease,
+    box-shadow 0.4s ease;
+}
+
+.header.scrolled {
+  background: rgba(243, 240, 234, 0.92);
+  backdrop-filter: blur(12px);
+  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.06);
+}
+
+.logo {
+  font-family: Georgia, serif;
+  font-size: 15px;
+  letter-spacing: 0.15em;
+}
+
+.logo span {
+  font-family: Arial, sans-serif;
+  font-size: 9px;
+  margin-left: 5px;
+  color: #928b80;
+}
+
+.nav {
+  margin-left: auto;
+
+  display: flex;
+  align-items: center;
+
+  gap: 34px;
+}
+
+.nav a {
+  font-size: 9px;
+  letter-spacing: 0.2em;
+}
+
+.header-reserve {
+  margin-left: 35px;
+
+  padding: 13px 22px;
+
+  border: 1px solid #403d38;
+
+  font-size: 9px;
+  letter-spacing: 0.18em;
+
+  transition: 0.3s;
+}
+
+.header-reserve:hover {
+  background: #282725;
+  color: #fff;
+}
+
+.menu-button {
+  display: none;
+  border: 0;
+  background: transparent;
+}
+
+
+/* =========================
+   HERO
+========================= */
+
+.hero {
+  position: relative;
+
+  min-height: 100vh;
+
+  display: grid;
+  grid-template-columns: 66% 34%;
+
+  background: #e9e4dc;
+
+  overflow: hidden;
+}
+
+.hero-image-wrap {
+  height: 100vh;
+  overflow: hidden;
+  background: #f3f0ea;
+}
+
+.hero-image {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center;
+}
+
+@keyframes heroZoom {
+  from {
+    transform: scale(1);
+  }
+
+  to {
+    transform: scale(1.045);
+  }
+}
+
+.hero-side {
+  padding: 160px 55px 60px;
+
+  display: flex;
+  flex-direction: column;
+
+  justify-content: center;
+}
+
+.number {
+  margin-bottom: 50px;
+
+  font-size: 9px;
+  letter-spacing: 0.3em;
+
+  color: #807a70;
+}
+
+.hero h1 {
+  font-family: Georgia, "Times New Roman", serif;
+
+  font-size: clamp(48px, 5.3vw, 88px);
+
+  line-height: 1;
+
+  font-weight: 400;
+
+  letter-spacing: -0.04em;
+}
+
+.hero-jp {
+  margin-top: 45px;
+
+  font-family: "Noto Serif JP", Georgia, serif;
+
+  font-size: 15px;
+
+  line-height: 2.1;
+}
+
+.scroll {
+  margin-top: 80px;
+
+  display: flex;
+
+  width: 110px;
+
+  justify-content: space-between;
+
+  font-size: 9px;
+  letter-spacing: 0.2em;
+}
+
+.sample-mark {
+  position: absolute;
+
+  bottom: 25px;
+  left: 30px;
+
+  color: #fff;
+
+  font-size: 8px;
+  letter-spacing: 0.22em;
+}
+
+
+/* =========================
+   CONCEPT
+========================= */
+
+.concept {
+  padding-top: 170px;
+  padding-bottom: 190px;
+}
+
+.section-head {
+  display: flex;
+  justify-content: space-between;
+
+  margin-bottom: 65px;
+}
+
+.section-number {
+  font-family: Georgia, serif;
+
+  font-size: 13px;
+
+  color: #aaa298;
+}
+
+.concept-grid {
+  display: grid;
+
+  grid-template-columns: 1.1fr 0.9fr;
+
+  gap: 140px;
+}
+
+.concept h2 {
+  font-family: "Noto Serif JP", Georgia, serif;
+
+  font-size: clamp(38px, 4.5vw, 65px);
+
+  line-height: 1.6;
+
+  font-weight: 400;
+}
+
+.concept-copy {
+  padding-top: 20px;
+}
+
+.concept-copy p {
+  margin-bottom: 30px;
+
+  font-size: 14px;
+
+  color: #6f6a63;
+}
+
+
+/* =========================
+   STYLE
+========================= */
+
+.style-section {
+  padding-bottom: 190px;
+}
+
+.style-heading {
+  display: flex;
+
+  align-items: flex-end;
+  justify-content: space-between;
+
+  margin-bottom: 80px;
+}
+
+.style-heading h2 {
+  margin-top: 30px;
+
+  font-family: Georgia, serif;
+
+  font-size: clamp(60px, 8vw, 120px);
+
+  font-weight: 400;
+
+  line-height: 0.85;
+
+  letter-spacing: -0.04em;
+}
+
+.style-lead {
+  font-family: "Noto Serif JP", Georgia, serif;
+
+  font-size: 15px;
+
+  line-height: 2;
+}
+
+.style-gallery {
+  width: min(1350px, calc(100% - 60px));
+
+  margin: 0 auto;
+
+  display: grid;
+
+  grid-template-columns: 1fr 0.8fr;
+
+  gap: 90px;
+}
+
+.style-card-right {
+  margin-top: 180px;
+}
+
+.style-image {
+  overflow: hidden;
+}
+
+.style-image img {
+  width: 100%;
+  height: 700px;
+
+  object-fit: cover;
+
+  transition: transform 0.9s ease;
+}
+
+.style-card-right .style-image img {
+  height: 580px;
+}
+
+.style-card:hover img {
+  transform: scale(1.025);
+}
+
+.style-info {
+  margin-top: 25px;
+
+  position: relative;
+}
+
+.style-info > span {
+  font-size: 9px;
+
+  letter-spacing: 0.2em;
+
+  color: #928a80;
+}
+
+.style-info h3 {
+  margin-top: 8px;
+
+  font-family: Georgia, serif;
+
+  font-size: 27px;
+
+  font-weight: 400;
+
+  letter-spacing: 0.1em;
+}
+
+.style-info p {
+  margin-top: 5px;
+
+  font-size: 10px;
+
+  letter-spacing: 0.15em;
+
+  color: #9b9388;
+}
+
+
+/* =========================
+   MESSAGE
+========================= */
+
+.message {
+  min-height: 600px;
+
+  padding: 100px 40px;
+
+  background: #292824;
+  color: #f5f1e9;
+
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+  justify-content: center;
+
+  text-align: center;
+}
+
+.message > p {
+  margin-bottom: 55px;
+
+  font-size: 9px;
+  letter-spacing: 0.4em;
+
+  color: #b9b1a5;
+}
+
+.message h2 {
+  font-family: Georgia, serif;
+
+  font-size: clamp(55px, 8vw, 115px);
+
+  line-height: 0.95;
+
+  font-weight: 400;
+
+  letter-spacing: -0.035em;
+}
+
+
+/* =========================
+   MENU
+========================= */
+
+.price {
+  padding-top: 170px;
+  padding-bottom: 180px;
+}
+
+.price-title {
+  margin-bottom: 80px;
+}
+
+.price-title h2 {
+  margin-top: 25px;
+
+  font-family: Georgia, serif;
+
+  font-size: clamp(55px, 7vw, 100px);
+
+  font-weight: 400;
+
+  line-height: 1;
+}
+
+.price-list {
+  border-top: 1px solid #cbc5bb;
+}
+
+.price-row {
+  min-height: 110px;
+
+  border-bottom: 1px solid #cbc5bb;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: space-between;
+
+  transition: padding 0.3s ease;
+}
+
+.price-row:hover {
+  padding-left: 15px;
+}
+
+.price-row > div {
+  display: flex;
+
+  align-items: center;
+
+  gap: 50px;
+}
+
+.price-row span {
+  font-size: 9px;
+
+  color: #a0988e;
+}
+
+.price-row h3 {
+  font-family: Georgia, serif;
+
+  font-size: 25px;
+
+  font-weight: 400;
+
+  letter-spacing: 0.1em;
+}
+
+.price-row > p {
+  font-size: 13px;
+
+  color: #79736b;
+}
+
+.menu-note {
+  margin-top: 25px;
+
+  font-size: 10px;
+
+  color: #918a81;
+}
+
+
+/* =========================
+   SALON
+========================= */
+
+.salon {
+  min-height: 850px;
+
+  display: grid;
+
+  grid-template-columns: 60% 40%;
+}
+
+.salon-image {
+  overflow: hidden;
+}
+
+.salon-image img {
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+}
+
+.salon-content {
+  padding: 90px 70px;
+
+  background: #ddd5c9;
+
+  display: flex;
+
+  flex-direction: column;
+
+  justify-content: center;
+}
+
+.salon-content h2 {
+  margin-top: 35px;
+
+  font-family: "Noto Serif JP", Georgia, serif;
+
+  font-size: clamp(32px, 3.5vw, 53px);
+
+  line-height: 1.6;
+
+  font-weight: 400;
+}
+
+.salon-content > p:not(.eyebrow) {
+  margin-top: 40px;
+
+  max-width: 430px;
+
+  color: #706a62;
+
+  font-size: 13px;
+}
+
+.salon-content a {
+  width: 250px;
+
+  margin-top: 55px;
+  padding-bottom: 13px;
+
+  border-bottom: 1px solid #8c8478;
+
+  display: flex;
+
+  justify-content: space-between;
+
+  font-size: 9px;
+  letter-spacing: 0.2em;
+}
+
+
+/* =========================
+   INFO
+========================= */
+
+.info {
+  padding-top: 170px;
+  padding-bottom: 180px;
+
+  display: grid;
+
+  grid-template-columns: 1fr 1fr;
+
+  gap: 130px;
+}
+
+.info-title h2 {
+  margin-top: 30px;
+
+  font-family: Georgia, serif;
+
+  font-size: clamp(60px, 7vw, 100px);
+
+  font-weight: 400;
+
+  line-height: 1;
+}
+
+.info-content {
+  border-top: 1px solid #c7c1b7;
+}
+
+.info-row {
+  padding: 27px 0;
+
+  border-bottom: 1px solid #c7c1b7;
+
+  display: grid;
+
+  grid-template-columns: 130px 1fr;
+}
+
+.info-row span {
+  font-size: 9px;
+
+  letter-spacing: 0.18em;
+
+  color: #928a80;
+}
+
+.info-row p {
+  font-family: Georgia, serif;
+
+  font-size: 16px;
+}
+
+
+/* =========================
+   RESERVATION
+========================= */
+
+.reservation {
+  min-height: 720px;
+
+  background: #c9bca9;
+
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+  justify-content: center;
+
+  text-align: center;
+}
+
+.reservation > p:first-child {
+  font-size: 9px;
+
+  letter-spacing: 0.4em;
+}
+
+.reservation h2 {
+  margin-top: 35px;
+
+  font-family: Georgia, serif;
+
+  font-size: clamp(65px, 9vw, 135px);
+
+  font-weight: 400;
+
+  line-height: 0.85;
+
+  letter-spacing: -0.04em;
+}
+
+.reservation-jp {
+  margin-top: 35px;
+
+  font-family: "Noto Serif JP", Georgia, serif;
+
+  font-size: 14px;
+}
+
+.reserve-button {
+  width: 230px;
+  height: 65px;
+
+  margin-top: 50px;
+
+  padding: 0 25px;
+
+  border: 1px solid #454039;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: space-between;
+
+  font-size: 9px;
+  letter-spacing: 0.2em;
+
+  transition: 0.3s;
+}
+
+.reserve-button:hover {
+  background: #292824;
+  color: #fff;
+}
+
+
+/* =========================
+   SAMPLE
+========================= */
+
+.sample {
+  min-height: 650px;
+
+  background: #f6f3ed;
+
+  display: flex;
+
+  flex-direction: column;
+
+  justify-content: center;
+  align-items: center;
+
+  text-align: center;
+
+  padding: 80px 20px;
+}
+
+.sample > p {
+  margin-bottom: 45px;
+
+  font-size: 9px;
+
+  letter-spacing: 0.35em;
+}
+
+.sample h2 {
+  font-family: Georgia, serif;
+
+  font-size: clamp(55px, 9vw, 130px);
+
+  font-weight: 400;
+
+  line-height: 0.9;
+}
+
+.sample span {
+  margin-top: 45px;
+
+  font-size: 9px;
+
+  letter-spacing: 0.15em;
+
+  color: #8c857c;
+}
+
+
+/* =========================
+   FOOTER
+========================= */
+
+.footer {
+  min-height: 140px;
+
+  padding: 40px 45px;
+
+  background: #292824;
+  color: #f4f0e8;
+
+  display: grid;
+
+  grid-template-columns: 1fr 1fr 1fr;
+
+  align-items: center;
+}
+
+.footer p {
+  font-size: 9px;
+
+  letter-spacing: 0.2em;
+}
+
+.footer p:nth-child(2) {
+  text-align: center;
+}
+
+.footer span {
+  text-align: right;
+
+  font-size: 8px;
+
+  letter-spacing: 0.15em;
+
+  color: #918c84;
+}
+
+
+/* =========================
+   REVEAL
+========================= */
+
+.reveal {
+  opacity: 0;
+
+  transform: translateY(35px);
+
+  transition:
+    opacity 0.9s ease,
+    transform 0.9s ease;
+}
+
+.reveal.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 800px) {
+
+  .section {
+    width: calc(100% - 40px);
+  }
+
+
+  /* HEADER */
+
+  .header {
+    height: 70px;
+    padding: 0 20px;
+  }
+
+  .header-reserve {
+    display: none;
+  }
+
+  .menu-button {
+    display: block;
+
+    margin-left: auto;
+
+    position: relative;
+    z-index: 100;
+
+    font-size: 9px;
+    letter-spacing: 0.2em;
+
+    cursor: pointer;
+  }
+
+  .nav {
+    position: fixed;
+
+    inset: 0;
+
+    background: #f3f0ea;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+    align-items: center;
+
+    gap: 30px;
+
+    opacity: 0;
+    visibility: hidden;
+
+    transition: 0.4s;
+  }
+
+  .nav.open {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .nav a {
+    font-family: Georgia, serif;
+
+    font-size: 28px;
+  }
+
+
+  /* HERO */
+
+  .hero {
+    display: block;
+
+    min-height: auto;
+  }
+
+  .hero-image-wrap {
+    height: 68vh;
+    min-height: 520px;
+  }
+
+  .hero-side {
+    min-height: 420px;
+
+    padding: 65px 25px;
+  }
+
+  .hero h1 {
+    font-size: 50px;
+  }
+
+  .number {
+    margin-bottom: 30px;
+  }
+
+  .scroll {
+    margin-top: 45px;
+  }
+
+  .sample-mark {
+    top: calc(68vh - 35px);
+    bottom: auto;
+
+    left: 20px;
+  }
+
+
+  /* CONCEPT */
+
+  .concept {
+    padding-top: 110px;
+    padding-bottom: 120px;
+  }
+
+  .concept-grid {
+    grid-template-columns: 1fr;
+
+    gap: 50px;
+  }
+
+  .concept h2 {
+    font-size: 34px;
+  }
+
+
+  /* STYLE */
+
+  .style-section {
+    padding-bottom: 120px;
+  }
+
+  .style-heading {
+    display: block;
+
+    margin-bottom: 55px;
+  }
+
+  .style-heading h2 {
+    font-size: 60px;
+  }
+
+  .style-lead {
+    margin-top: 35px;
+  }
+
+  .style-gallery {
+    width: calc(100% - 40px);
+
+    display: block;
+  }
+
+  .style-card {
+    margin-bottom: 80px;
+  }
+
+  .style-card-right {
+    margin-top: 0;
+  }
+
+  .style-image img,
+  .style-card-right .style-image img {
+    height: 520px;
+  }
+
+
+  /* MESSAGE */
+
+  .message {
+    min-height: 500px;
+  }
+
+  .message h2 {
+    font-size: 53px;
+  }
+
+
+  /* MENU */
+
+  .price {
+    padding-top: 110px;
+    padding-bottom: 120px;
+  }
+
+  .price-title h2 {
+    font-size: 55px;
+  }
+
+  .price-row > div {
+    gap: 25px;
+  }
+
+  .price-row h3 {
+    font-size: 19px;
+  }
+
+
+  /* SALON */
+
+  .salon {
+    display: block;
+  }
+
+  .salon-image {
+    height: 500px;
+  }
+
+  .salon-content {
+    padding: 90px 25px;
+  }
+
+  .salon-content h2 {
+    font-size: 34px;
+  }
+
+
+  /* INFO */
+
+  .info {
+    padding-top: 110px;
+    padding-bottom: 120px;
+
+    grid-template-columns: 1fr;
+
+    gap: 70px;
+  }
+
+  .info-title h2 {
+    font-size: 60px;
+  }
+
+  .info-row {
+    grid-template-columns: 100px 1fr;
+  }
+
+
+  /* RESERVATION */
+
+  .reservation {
+    min-height: 580px;
+
+    padding: 70px 20px;
+  }
+
+  .reservation h2 {
+    font-size: 62px;
+  }
+
+
+  /* SAMPLE */
+
+  .sample {
+    min-height: 500px;
+  }
+
+  .sample h2 {
+    font-size: 53px;
+  }
+
+
+  /* FOOTER */
+
+  .footer {
+    display: block;
+
+    padding: 45px 20px;
+  }
+
+  .footer p:nth-child(2) {
+    text-align: left;
+
+    margin-top: 15px;
+  }
+
+  .footer span {
+    display: block;
+
+    text-align: left;
+
+    margin-top: 25px;
+  }
+
+}
